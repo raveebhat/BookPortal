@@ -1,0 +1,13 @@
+.wrapper {
+	position: relative;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 20px;
+}
+
+.pullright {
+	position: relative;
+	margin-right: 0%;
+}
+
