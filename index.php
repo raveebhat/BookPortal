@@ -6,10 +6,10 @@
     </head>
     <body>
         <?php
-        function test(){
-            echo'test';
-        }
-        test();
+            function test() {
+                echo'test';
+            }
+            test();
         ?>
     </body>
 </html>
