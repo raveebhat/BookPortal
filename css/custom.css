@@ -1,0 +1,14 @@
+.wrapper {
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.mgap {
+	position: relative;
+	height: 20px;
+}
+.sgap {
+	position: relative;
+	height: 5px;
+}
+
