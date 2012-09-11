@@ -11,11 +11,11 @@ if($authors_domain->isOK()) {
 	/*$add_authors = $sdb->batch_put_attributes($domain, array(
 		'author_1' => array(
 				'name' => 'Behrouz A Forouzan',
-				'password' => '1a1dc91c907325c69271ddf0c944bc72' 
+				'password' => '1a1dc91c907325c69271ddf0c944bc72' //MD5 of 'pass'
 			),
 		'author_2' => array(
 				'name' => 'Dennis M. Ritchie',
-				'password' => '1a1dc91c907325c69271ddf0c944bc72' 
+				'password' => '1a1dc91c907325c69271ddf0c944bc72' //MD5 of 'pass'
 		),
 		));*/
 	/*if($add_authors->isOK()) {
