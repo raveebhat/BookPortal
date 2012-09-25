@@ -11,7 +11,7 @@
 	$pass = $_POST["pass"];
 	$type = ($_POST["type"] == "Reader" ? 2 : 1);//reader->2 author->1
 	if($uname && $email && $pass) {
-		$response = $sdb->get_attributes($domain, 'author_3');
+		$response = $sdb->get_attributes($domain, $email);
 		if($response->body->GetAttributesResult->Attribute) {
 			echo("already registered");
 		} else {
