@@ -10,9 +10,10 @@
 	$pass = $_POST["pass"];
 	$response = $sdb->get_attributes($domain, $email);
 	if($response->body->GetAttributesResult->Attribute) {
-		echo("Welcome ".$response->body->GetAttributesResult->Attribute[0]->Value);
-		if(md5($pass) == $response->body->GetAttributesResult->Attribute[1]->Value) {
-			echo("Login was Successful");
+		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
+		$upass = $response->body->GetAttributesResult->Attribute[1]->Value;
+		if(md5($pass) == $upass) {
+			echo("Welcome ".$uname);
 		} else {
 			echo("Login Failed");
 		}
