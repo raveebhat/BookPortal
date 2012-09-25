@@ -6,25 +6,27 @@ header("Content-type: text/html; charset=utf-8");
 
 $sdb = new AmazonSDB();
 $domain = 'authors';
-$authors_domain = $sdb->create_domain($domain);
-if($authors_domain->isOK()) {
+//$authors_domain = $sdb->create_domain($domain);
 	/*$add_authors = $sdb->batch_put_attributes($domain, array(
-		'author_1' => array(
+		'baf@tmh.com' => array(
 				'name' => 'Behrouz A Forouzan',
-				'password' => '1a1dc91c907325c69271ddf0c944bc72' //MD5 of 'pass'
+				'password' => '1a1dc91c907325c69271ddf0c944bc72', //MD5 of 'pass'
+				'type' => '1',
 			),
-		'author_2' => array(
+		'dmr@phi.com' => array(
 				'name' => 'Dennis M. Ritchie',
-				'password' => '1a1dc91c907325c69271ddf0c944bc72' //MD5 of 'pass'
+				'password' => '1a1dc91c907325c69271ddf0c944bc72', //MD5 of 'pass'
+				'type' => '1',
 		),
 		));*/
-	/*if($add_authors->isOK()) {
-		echo("Added Authors");*/
-	$query = "SELECT name FROM `{$domain}`";
+	$sdb->delete_attributes($domain,"author_2",array(
+		array('Name' => 'name'),
+		array('Name' => 'password')
+		));
+	$query = "SELECT name,password FROM `{$domain}`";
 	$results = $sdb->select($query);
 	$authors = $results->body->Item();
 	foreach($authors as $author) {
-		echo($author->Attribute->Value);echo("</br>");
+		echo($author->Attribute[0]->Value);echo("</br>");
 	}
-}
 ?>

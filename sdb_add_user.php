@@ -9,6 +9,7 @@
 	$uname = $_POST["name"];
 	$email = $_POST["email"];
 	$pass = $_POST["pass"];
+	$type = ($_POST["type"] == "Reader" ? 2 : 1);//reader->2 author->1
 	if($uname && $email && $pass) {
 		$response = $sdb->get_attributes($domain, 'author_3');
 		if($response->body->GetAttributesResult->Attribute) {
@@ -17,6 +18,7 @@
 			$response = $sdb->put_attributes($domain,$email,array(
 				'name' => $uname,
 				'password' => md5($pass),
+				'type'  => $type,
 			));
 			if($response->isOK()) {
 				echo "User ".$uname." Registered Successfully";
@@ -24,8 +26,5 @@
 				echo "Registration Failed";
 			}
 		}
-
-		//$results = $sdb->select($query);
-		//$authors = $results->body->Item();
 	}
 ?>
