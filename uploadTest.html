@@ -5,14 +5,37 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>Upload a Book</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+       
     </head>
     <body>
-        <form enctype="multipart/form-data" action="uploader.php" method="POST">
-<input type="hidden" name="MAX_FILE_SIZE" value="100000000" />
-Choose a file to upload: <input name="uploadedfile" type="file" /><br />
-<input type="submit" value="Upload File" />
+        
+        <div class="container-fluid">
+        <form class="form-horizontal" enctype="multipart/form-data" action="uploader.php" method="POST">
+            <legend>
+                Upload a Book
+            </legend>
+  <div class="control-group">
+    <label class="control-label" for="title">Title</label>
+    <div class="controls">
+      <input type="text" id="title" name="title" placeholder="Title">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="uploadedfile">Choose a file to upload:</label>
+    <div class="controls">
+      <input type="file" id="uploadedfile" name="uploadedfile" >
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+        <button type="submit" class="btn btn-primary">Upload File</button>
+    </div>
+  </div>
 </form>
+            </div>
     </body>
 </html>
