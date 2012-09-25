@@ -11,11 +11,10 @@
 	$response = $sdb->get_attributes($domain, $email);
 	if($response->body->GetAttributesResult->Attribute) {
 		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
-		$upass = $response->body->GetAttributesResult->Attribute[1]->Value;
-		if(md5($pass) == $upass) {
+		if(md5($pass) == $response->body->GetAttributesResult->Attribute[2]->Value) {
 			echo("Welcome ".$uname);
 		} else {
-			echo("Login Failed");
+			echo("Login Failed".$response->body->GetAttributesResult->Attribute[2]->Value);
 		}
 	} else {
 		echo("Not Registered");
