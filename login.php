@@ -8,13 +8,13 @@
 	$domain = 'authors';
 	$email = $_POST["email"];
 	$pass = $_POST["pass"];
-	$response = $sdb->get_attributes($domain, $email);
+	$response = $sdb->get_attributes($domain, $email, array('name','password'));
 	if($response->body->GetAttributesResult->Attribute) {
 		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
-		if(md5($pass) == $response->body->GetAttributesResult->Attribute[2]->Value) {
+		if(md5($pass) == $response->body->GetAttributesResult->Attribute[1]->Value) {
 			echo("Welcome ".$uname);
 		} else {
-			echo("Login Failed".$response->body->GetAttributesResult->Attribute[2]->Value);
+			echo("Login Failed".$response->body->GetAttributesResult->Attribute[1]->Value);
 		}
 	} else {
 		echo("Not Registered");
