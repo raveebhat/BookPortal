@@ -27,8 +27,8 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container"><!-- Collapsable nav bar -->
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <a class="brand">Instaboook!</a>
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></a>
+                    <a class="brand">Instabook!</a>
                 </div>
             </div>
         </div>
@@ -38,25 +38,34 @@
                 <div class="span3"></div>
                 <div class="span6">
                     <legend><h2>Sign Up</h2></legend>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal"  method="POST" action="sdb_add_user.php">
+                        
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail"><strong>Name</strong></label>
+                            <div class="controls">
+                                <input type="text" id="uname" name="name" placeholder="Name">
+                            </div>
+                        </div>
+                        
                         <div class="control-group">
                             <label class="control-label" for="inputEmail"><strong>Email</strong></label>
                             <div class="controls">
-                                <input type="text" id="inputEmail" placeholder="Email">
+                                <input type="text" id="email" name="email" placeholder="Email">
                             </div>
                         </div>
+                        
                         <div class="control-group">
                             <label class="control-label" for="inputPassword"><strong>Choose your Password</strong></label>
                             <div class="controls">
-                                <input type="password" id="inputPassword" placeholder="Password">
+                                <input type="password" id="upass" name="pass" placeholder="Password">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="inputPassword"><strong>Sign Up as</strong></label>
                             <div class="controls">
-                                <select>
-                                    <option>Author</option>
-                                    <option>Reader</option>
+                                <select name="type">
+                                    <option value="Author">Author</option>
+                                    <option value="Reader">Reader</option>
                                 </select>
                             </div>
                         </div>

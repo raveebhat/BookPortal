@@ -47,7 +47,7 @@
  
       <?  
           session_start();
-          var_dump($_SESSION);
+          //var_dump($_SESSION);
       ?>
       <div class="nav-collapse">
  
@@ -58,7 +58,7 @@
                 <?}
                 else{
                 ?>
-                <a href="#">Sign Up</a>
+                <a href="signup.html">Sign Up</a>
                 <?}?>
             </li>
           <li class="divider-vertical"></li>
