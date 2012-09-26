@@ -142,7 +142,7 @@ body {
   background-color: #ffffff;
 }
 a {
-  color: #2fa4e7;
+  color: #1C5D81;
   text-decoration: none;
 }
 a:hover {
@@ -504,7 +504,7 @@ h6 {
   font-family: 'Telex', sans-serif;
   font-weight: bold;
   line-height: 1;
-  color: #317eac;
+  color:#424242;
   text-rendering: optimizelegibility;
 }
 h1 small,
@@ -3156,7 +3156,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   color: #ffffff;
-  background-color: #2fa4e7;
+  background-color: #1C5D81;
 }
 .nav-stacked > li {
   float: none;
@@ -3395,7 +3395,7 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
-  color: #ffffff;
+  color: #B8005C;
   text-shadow: 0 1px 0 #54b4eb;
 }
 .navbar .brand:hover {
@@ -4996,12 +4996,12 @@ div.subnav-fixed {
 .btn-inverse {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #f8b93b;
-  background-image: -moz-linear-gradient(top, #f8bd45, #f7b42c);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f8bd45), to(#f7b42c));
-  background-image: -webkit-linear-gradient(top, #f8bd45, #f7b42c);
-  background-image: -o-linear-gradient(top, #f8bd45, #f7b42c);
-  background-image: linear-gradient(to bottom, #f8bd45, #f7b42c);
+  background-color: #000000;
+  background-image: -moz-linear-gradient(top, #000000, #000000);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000000), to(#000000));
+  background-image: -webkit-linear-gradient(top, #000000, #000000);
+  background-image: -o-linear-gradient(top, #000000, #000000);
+  background-image: linear-gradient(to bottom, #000000, #000000);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8bd45', endColorstr='#fff7b42c', GradientType=0);
   border-color: #f7b42c #f7b42c #cf8d08;

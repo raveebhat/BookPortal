@@ -71,7 +71,11 @@
                 <?}
                 else{
                 ?>
+<<<<<<< HEAD
+                <a href="./signup.html">Sign Up</a>
+=======
                 <a href="signup.html">Sign Up</a>
+>>>>>>> d61abbde4fbfab11c632178d71e286843730e9f0
                 <?}?>
             </li>
           <li class="divider-vertical"></li>
