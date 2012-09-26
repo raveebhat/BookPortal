@@ -11,11 +11,18 @@
         <script>
             $(function() {
                 //enable popovers
+<<<<<<< HEAD
 //                $('.example').popover({
 //                    placement: 'bottom',
 //                    delay: { show: 100, hide:1000 }
 //                    
 //                });
+=======
+                $('.example').popover({
+                    placement: 'bottom'
+                    
+                });
+>>>>>>> 1c2bcd1dadc6be0796e22e20e453d4b505f47903
                 // Setup drop down menu
                 $('.dropdown-toggle').dropdown();
                 // Fix input element click problem
@@ -63,7 +70,8 @@
                             </div>
                             <div class="span6">
                                 <legend><h5>Uploaded Books</h5></legend>
-                                    <a rel="popover" href="#" title="" data-title="HTML5" data-content='<button class="btn btn-danger">Delete</button>' data-placement="right" data-trigger="click" class="example"> 
+                                    <a rel="popover" href="#" title="" data-content='<button class="btn btn-danger">Delete</button>' class="example"> 
+
                                     <img src="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" alt="" /> </a>
                                     
                             </div>
