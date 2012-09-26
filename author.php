@@ -7,8 +7,22 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-popover.js"></script>
         <script>
             $(function() {
+                //enable popovers
+<<<<<<< HEAD
+//                $('.example').popover({
+//                    placement: 'bottom',
+//                    delay: { show: 100, hide:1000 }
+//                    
+//                });
+=======
+                $('.example').popover({
+                    placement: 'bottom'
+                    
+                });
+>>>>>>> 1c2bcd1dadc6be0796e22e20e453d4b505f47903
                 // Setup drop down menu
                 $('.dropdown-toggle').dropdown();
                 // Fix input element click problem
@@ -28,7 +42,7 @@
             <div class="navbar-inner">
                 <div class="container"><!-- Collapsable nav bar -->
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <a class="brand">Instaboook!</a>
+                    <a class="brand">Instabook!</a>
                 </div>
             </div>
         </div>
@@ -39,7 +53,8 @@
                     <div class="container">
                         <div class="row-fluid">
                             <div class="span3">
-                                <h2>Arun Bharadwaj</h2>
+                                <? session_start();?>
+                                <h2><? echo $_SESSION['uname'];?></h2>
                                 <p><strong>Upload A New Book</strong></p>
                                 <form class="form-horizontal pull-left" method="POST" action="uploader.php" enctype="multipart/form-data">
                                     <div class="control-group">
@@ -53,12 +68,15 @@
                                     </div>
                                 </form><!--<buttonclass="btn btn-success btn-block"type="button">UploadNewFile</button>-->
                             </div>
-                            <div class="span8">
+                            <div class="span6">
                                 <legend><h5>Uploaded Books</h5></legend>
-                                <a href="http://docs.google.com/viewer?url=MY_PDF_LINK.pdf&a=bi&pagenumber=1&w=800" title=""> 
-                                <img src="http://docs.google.com/viewer?url=MY_PDF_LINK.pdf&a=bi&pagenumber=1&w=800" alt="" />
-                                <a href="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" title=""> 
-                                <img src="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" alt="" /> 
+                                    <a rel="popover" href="#" title="" data-content='<button class="btn btn-danger">Delete</button>' class="example"> 
+
+                                    <img src="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" alt="" /> </a>
+                                    
+                            </div>
+                            <div class="span3">
+                            
                             </div>
                         </div>
                     </div>

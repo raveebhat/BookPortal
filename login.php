@@ -12,13 +12,16 @@
 	
 	if($response->body->GetAttributesResult->Attribute) {
 		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
+
                 $utype=  $response->body->GetAttributesResult->Attribute[1]->Value;
 		if(md5($pass) == $response->body->GetAttributesResult->Attribute[2]->Value) {
+                    session_destroy();
                     session_start();
                     $_SESSION['auth']=1;
                     $_SESSION['uname']=(string)$uname;
-                    $_SESSION['utype']=(string)$utype;
+                      $_SESSION['utype']=(string)$utype;
                 	header("Location:index.php");
+
 		} else {
                     	session_start();
                         $_SESSION['msg']="The username or password you entered is incorrect.";

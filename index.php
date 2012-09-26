@@ -2,13 +2,18 @@
 <html>
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Instabook</title>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      
         <script>
     $(function() {
+        
+    $('.example').popover({
+                   
+                });
   // Setup drop down menu
   $('.dropdown-toggle').dropdown();
  
@@ -17,16 +22,24 @@
     e.stopPropagation();
   });
 });   
+
     </script>
     <style>
         #showcase{
             padding-top: 80px;
         }
         img{
+            width: 180px;
             height: 250px;
         }
         .welcome{
             padding-top: 15px;
+        }
+        .bTitle{
+            color:#0099FF;
+        }
+        .bAuthor{
+            color:lightgray;
         }
     </style>
     </head>
@@ -47,7 +60,7 @@
  
       <?  
           session_start();
-          var_dump($_SESSION);
+          //var_dump($_SESSION);
       ?>
       <div class="nav-collapse">
  
@@ -58,7 +71,7 @@
                 <?}
                 else{
                 ?>
-                <a href="#">Sign Up</a>
+                <a href="signup.html">Sign Up</a>
                 <?}?>
             </li>
           <li class="divider-vertical"></li>
@@ -89,6 +102,7 @@
         $s3 = new AmazonS3();
         $bucket = 'book-bucket-' . strtolower($s3->key);
         $fileList=$s3->get_object_list($bucket);
+        
                   
   ?>
         <div id="showcase">
@@ -107,7 +121,8 @@
                    <? 
                    $i=0;
                    foreach ($fileList as $file) {
-                     
+                     $meta=$s3->get_object_metadata($bucket, $file);
+                    
                          if($i%5==0){   
                          ?>
                     <div class="span12">
@@ -115,8 +130,24 @@
                             <?}?>
                             <li>
                                 <div class="thumbnail">
-                                    <img src="http://docs.google.com/viewer?url=<?echo $s3->get_object_url($bucket, $file,'15 minutes');?>&a=bi&pagenumber=1&w=180&h=250" alt="" /> 
+                                    <? 
+                                    $url=$s3->get_object_url($bucket, $file,'15 minutes');
+                                    if (isset($_SESSION['auth'])){
+                                        
+                                        ?>
+                                    <a href="<?echo $url;?>" target="_blank" title="" >
+                                    <img src="http://docs.google.com/viewer?url=<?echo $url;?>&a=bi&pagenumber=1&w=180&h=250" alt="" /> 
+                                    </a>
+                                    <?}
+                                    else{
+                                    ?>
+                                    <a rel="popover" href="#" title="" data-title="<? echo $meta['Headers']['x-amz-meta-title'];?>" data-content='<p>Sign in to view/download the book</p>' data-placement="right" data-trigger="hover" class="example"> 
+                                    <img src="http://docs.google.com/viewer?url=<?echo $url;?>&a=bi&pagenumber=1&w=180&h=250" alt="" /> 
+                                    </a>
+                                    <?}?>
                                 </div>
+                                <div class="bTitle"><? echo $meta['Headers']['x-amz-meta-title'];?></div>
+<!--                                <div class="bAuthor">Author name</div>-->
                                 <?$i++;?>
                             </li>
                             <? if($i>0&&($i%5==0||$i==count($fileList))){?>
@@ -124,6 +155,7 @@
                     </div>
                           <?}}?>
                 </div>
+               
             </div>
          
 
