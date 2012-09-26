@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Book Portal/Sign Up</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script>
+            $(function() {
+                // Setup drop down menu
+                $('.dropdown-toggle').dropdown();
+                // Fix input element click problem
+                $('.dropdown-menu').find('form').click(function (e) {
+                  e.stopPropagation();
+                });
+            });   
+        </script>
+        <style>
+            #showcase{
+                padding-top: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container"><!-- Collapsable nav bar -->
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <a class="brand">Instaboook!</a>
+                </div>
+            </div>
+        </div>
+        <div id="showcase">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="span3"></div>
+                <div class="span6">
+                    <legend><h2>Sign Up</h2></legend>
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail"><strong>Email</strong></label>
+                            <div class="controls">
+                                <input type="text" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPassword"><strong>Choose your Password</strong></label>
+                            <div class="controls">
+                                <input type="password" id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPassword"><strong>Sign Up as</strong></label>
+                            <div class="controls">
+                                <select>
+                                    <option>Author</option>
+                                    <option>Reader</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="span3"></div>
+            </div>
+        </div>
+        </div>    
+    </body>
+</html>
