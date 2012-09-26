@@ -9,7 +9,7 @@
 	$email = $_POST["email"];
 	$pass = $_POST["pass"];
 	$response = $sdb->get_attributes($domain, $email, array('name','password','type'));
-	var_dump($response);
+	
 	if($response->body->GetAttributesResult->Attribute) {
 		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
                 $utype=  $response->body->GetAttributesResult->Attribute[1]->Value;
@@ -17,17 +17,16 @@
                     session_start();
                     $_SESSION['auth']=1;
                     $_SESSION['uname']=(string)$uname;
-                    $_SESSION['utype']=$utype;
-                     header("Location:index.php");
-                //        var_dump($_SESSION);
+                    $_SESSION['utype']=(string)$utype;
+                	header("Location:index.php");
 		} else {
-                        session_start();
+                    	session_start();
                         $_SESSION['msg']="The username or password you entered is incorrect.";
-			header("Location:index.php");
+						header("Location:index.php");
 		}
 	} else {
 		session_start();
-                $_SESSION['msg']="Unregistered User,Please register";
+		$_SESSION['msg']="Unregistered User,Please register";
 		header("Location:index.php");
 	}
  ?>
