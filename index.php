@@ -7,6 +7,7 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      
         <script>
     $(function() {
   // Setup drop down menu
@@ -17,6 +18,8 @@
     e.stopPropagation();
   });
 });   
+
+$('.btn').popover();
     </script>
     <style>
         #showcase{
@@ -47,7 +50,7 @@
  
       <?  
           session_start();
-          //var_dump($_SESSION);
+          var_dump($_SESSION);
       ?>
       <div class="nav-collapse">
  
@@ -124,6 +127,7 @@
                     </div>
                           <?}}?>
                 </div>
+                <a href="#" class="btn btn-large btn-danger" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Click to toggle popover</a>
             </div>
          
 
