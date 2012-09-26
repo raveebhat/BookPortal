@@ -16,10 +16,24 @@ $bucket = 'book-bucket-' . strtolower($s3->key);
         
     ),
 ));
+ session_start();
+ $author=$_SESSION['uname'];
+ $book= $_POST['title'];
+$key = $author.'/'.$book;
+    $domain = 'books-aalr';
+    $sdb = new AmazonSDB();
 
+    
+$response = $sdb->put_attributes($domain,$key,array(
+                'author' =>$author,
+                'title' =>$book,
+            ));
+if($response->isOK()) {
+      echo "Book added Successfully";
+}
 
-var_dump($_FILES);
-var_dump($response->isOK());
+//var_dump($_FILES);
+var_dump($response);
 //var_dump($response->body)
 
 
