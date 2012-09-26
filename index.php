@@ -46,7 +46,8 @@
       <a class="brand">Instabook!</a>
  
       <?  
-      session_start();
+          session_start();
+          var_dump($_SESSION);
       ?>
       <div class="nav-collapse">
  
@@ -82,14 +83,26 @@
     </div>
   </div>
 </div>
+        
         <?
         require_once './sdk.class.php';
         $s3 = new AmazonS3();
         $bucket = 'book-bucket-' . strtolower($s3->key);
         $fileList=$s3->get_object_list($bucket);
-        ?>
+                  
+  ?>
         <div id="showcase">
+            
             <div class="container fluid-grid">
+                <?if(!isset($_SESSION['auth'])&&isset($_SESSION['msg'])){?>
+                <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Error!</strong>
+  <? echo$_SESSION['msg'];?>
+</div>
+                <?
+                session_destroy();
+                }?>
                 <div class="span11">
                    <? 
                    $i=0;

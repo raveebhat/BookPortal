@@ -8,19 +8,25 @@
 	$domain = 'authors';
 	$email = $_POST["email"];
 	$pass = $_POST["pass"];
-	$response = $sdb->get_attributes($domain, $email, array('name','password'));
+	$response = $sdb->get_attributes($domain, $email, array('name','password','type'));
 	if($response->body->GetAttributesResult->Attribute) {
 		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
+               // $utype=  $response->body->GetAttributesResult->Attribute[2]->Value;
 		if(md5($pass) == $response->body->GetAttributesResult->Attribute[1]->Value) {
                     session_start();
                     $_SESSION['auth']=1;
                     $_SESSION['uname']=(string)$uname;
-                    header("Location:index.php");
+                 //   $_SESSION['utype']=$utype;
+                     header("Location:index.php");
                 //        var_dump($_SESSION);
 		} else {
-			echo("Login Failed".$response->body->GetAttributesResult->Attribute[1]->Value);
+                        session_start();
+                        $_SESSION['msg']="The username or password you entered is incorrect.";
+			header("Location:index.php");
 		}
 	} else {
-		echo("Not Registered");
+		session_start();
+                $_SESSION['msg']="Unregistered User,Please register";
+		header("Location:index.php");
 	}
  ?>
