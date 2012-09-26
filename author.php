@@ -7,8 +7,14 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap-popover.js"></script>
         <script>
             $(function() {
+                //enable popovers
+                $('.example').popover({
+                    placement: 'bottom'
+                    
+                });
                 // Setup drop down menu
                 $('.dropdown-toggle').dropdown();
                 // Fix input element click problem
@@ -53,12 +59,14 @@
                                     </div>
                                 </form><!--<buttonclass="btn btn-success btn-block"type="button">UploadNewFile</button>-->
                             </div>
-                            <div class="span8">
+                            <div class="span6">
                                 <legend><h5>Uploaded Books</h5></legend>
-                                <a href="http://docs.google.com/viewer?url=MY_PDF_LINK.pdf&a=bi&pagenumber=1&w=800" title=""> 
-                                <img src="http://docs.google.com/viewer?url=MY_PDF_LINK.pdf&a=bi&pagenumber=1&w=800" alt="" />
-                                <a href="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" title=""> 
-                                <img src="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" alt="" /> 
+                                    <a rel="popover" href="#" title="" data-content='<button class="btn btn-danger">Delete</button>' class="example"> 
+                                    <img src="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" alt="" /> </a>
+                                    
+                            </div>
+                            <div class="span3">
+                            
                             </div>
                         </div>
                     </div>
