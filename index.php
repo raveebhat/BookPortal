@@ -56,7 +56,7 @@
       </a>
  
       
-      <a class="brand">Instabook!</a>
+      <a href="index.php" class="brand">Instabook!</a>
  
       <?  
           session_start();

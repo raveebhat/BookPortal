@@ -20,7 +20,13 @@
                     $_SESSION['auth']=1;
                     $_SESSION['uname']=(string)$uname;
                       $_SESSION['utype']=(string)$utype;
+                      $_SESSION['email']=$email;
+                      if((string)$utype=="2")
                 	header("Location:index.php");
+                       if((string)$utype=="1")
+                          header("Location:author.php");
+                       else
+                           header("Location:admin.php");
 
 		} else {
                     	session_start();
