@@ -38,7 +38,7 @@
             <div class="navbar-inner">
                 <div class="container"><!-- Collapsable nav bar -->
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <a href="index.php"class="brand">Instabook!</a>
+                    <a href="index.php"class="brand">Instabook</a>
                     
       <?  
           session_start();
@@ -66,7 +66,7 @@ $result=$sdb->get_attributes($domain, $author,array('author','object'));
                 <a href="signup.html">Sign Up</a>
                 <?}?>
             </li>
-          <li class="divider-vertical"></li>
+<!--          <li class="divider-vertical"></li>-->
           <li class="drop down">
               <? if(isset($_SESSION['auth'])){?>
               <a href="signout.php">Sign out</a>
