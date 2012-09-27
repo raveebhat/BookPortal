@@ -52,7 +52,7 @@ $sdb = new AmazonSDB();
 $author = $_SESSION['email'];
 $result=$sdb->get_attributes($domain, $author,array('author','object'));
 
-var_dump($result->body);
+//var_dump($result->body);
   ?>
       <div class="nav-collapse">
    
