@@ -132,7 +132,7 @@ $result=$sdb->get_attributes($domain, $author,array('author','object'));
                             </div>
                             <div class="span6">
                                 <legend><h5>Uploaded Books</h5></legend>
-                                    <a rel="popover" href="#" title="" data-content='<button class="btn btn-danger">Delete</button>' class="example"> 
+                                  <!--  <a rel="popover" href="#" title="" data-content='<button class="btn btn-danger">Delete</button>' class="example"> -->
 
                                     <img src="http://docs.google.com/viewer?url=http://book-bucket-akiaifjiycmokm2ufdaa.s3.amazonaws.com/Introducing%20HTML5%20book.pdf?AWSAccessKeyId=AKIAIFJIYCMOKM2UFDAA&Expires=1348586946&Signature=QmRiCSrBTsMiyDqj4qVuW5k3o3E%3D&a=bi&pagenumber=1&w=200" alt="" /> </a>
                                     
