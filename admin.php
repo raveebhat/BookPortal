@@ -20,7 +20,7 @@
                     e.preventDefault();
                     $(this).tab('show');
                 })
-            });   
+            });
         </script>
         <style>
             #showcase{
@@ -28,7 +28,7 @@
             }.welcome{
             padding-top: 15px;
         }
-            
+
         </style>
     </head>
     <body>
@@ -38,12 +38,12 @@
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <a class="brand" href="./index.php">Instabook!</a>
                     <div class="nav-collapse">
- 
+
         <ul class="nav pull-right">
             <li>
                 <?
                 session_start();
-               
+
                 if(isset($_SESSION['auth'])){?>
                 <p class="welcome">Welcome<strong> <?echo $_SESSION['uname'];?></strong></p>
                 <?}
@@ -65,7 +65,7 @@
               <form action="login.php" method="post" accept-charset="UTF-8">
   <input id="uname" style="margin-bottom: 15px;" placeholder="Username" required type="text" name="email" size="30" />
   <input id="upass" style="margin-bottom: 15px;" placeholder="Password" required type="password" name="pass" size="30" />
-  
+
     <input class="btn btn-success" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />
 </form>
             </div>
@@ -81,14 +81,14 @@
              <?if(isset($_SESSION['auth'])&&isset($_SESSION['ucmsg'])){?>
                 <div class="alert alert-success">
   <button type="button" class="close" data-dismiss="alert">×</button>
-  
+
   <? echo$_SESSION['ucmsg'];?>
 </div>
                 <?
                 session_destroy();
                 }?>
             <div class="page-header">
-            <h1>Dashboard</h1>
+           <legend><h1>Dashboard</h1></legend>
           </div>
             <div class="row-fluid">
                 <div class="span12">
@@ -154,6 +154,6 @@ $results = $sdb->select($query);
                 </div>
             </div>
         </div>
-        </div>    
+        </div>
     </body>
 </html>
