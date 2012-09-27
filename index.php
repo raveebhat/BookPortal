@@ -44,6 +44,7 @@
         .home{
             padding-bottom: 20px;
         }
+       
     </style>
     </head>
     
@@ -59,7 +60,7 @@
       </a>
  
       
-      <a href="index.php" class="brand">Instabook!</a>
+        <a href="index.php" class="brand">Instabook</a>
  
       <?  
           session_start();
@@ -79,7 +80,7 @@
 
                 <?}?>
             </li>
-          <li class="divider-vertical"></li>
+<!--          <li class="divider-vertical"></li>-->
           <li class="drop down">
               <? if(isset($_SESSION['auth'])){?>
               <a href="signout.php">Sign out</a>
