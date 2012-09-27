@@ -14,6 +14,7 @@
 		$uname = $response->body->GetAttributesResult->Attribute[0]->Value;
 
                 $utype=  $response->body->GetAttributesResult->Attribute[1]->Value;
+                var_dump($utype);
 		if(md5($pass) == $response->body->GetAttributesResult->Attribute[2]->Value) {
                     session_destroy();
                     session_start();
