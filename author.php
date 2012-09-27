@@ -45,7 +45,7 @@
           //var_dump($_SESSION);
       ?>
       <div class="nav-collapse">
- 
+   
         <ul class="nav pull-right">
             <li>
                 <?if(isset($_SESSION['auth'])){?>
@@ -80,6 +80,24 @@
         </div>
         <div id="showcase">
         <div class="container">
+             <?if(isset($_SESSION['auth'])&&isset($_SESSION['upmsg'])){?>
+                <div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  
+  <? echo$_SESSION['upmsg'];
+  $_SESSION['upmsg']=null;
+  ?>
+   <?if(isset($_SESSION['auth'])&&isset($_SESSION['upemsg'])){?>
+                <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Error!</strong>
+  <? echo$_SESSION['upemsg'];
+  $_SESSION['upemsg']=null;
+  ?>
+</div>
+          <?}?>
+</div>
+          <?}?>
             <div class="row-fluid">
                 <div class="span12">
                     <div class="container">

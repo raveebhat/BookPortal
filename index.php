@@ -41,6 +41,9 @@
         .bAuthor{
             color:lightgray;
         }
+        .home{
+            padding-bottom: 20px;
+        }
     </style>
     </head>
     
@@ -71,11 +74,9 @@
                 <?}
                 else{
                 ?>
-<<<<<<< HEAD
-                <a href="./signup.html">Sign Up</a>
-=======
+
                 <a href="signup.html">Sign Up</a>
->>>>>>> d61abbde4fbfab11c632178d71e286843730e9f0
+
                 <?}?>
             </li>
           <li class="divider-vertical"></li>
@@ -110,8 +111,12 @@
                   
   ?>
         <div id="showcase">
-            
+<!--            <div class="pull-right home">
+                <a class="btn btn-small" href="#"><i class="icon-home pull-right "></i></a>
+                </div>-->
             <div class="container fluid-grid">
+                
+                
                 <?if(!isset($_SESSION['auth'])&&isset($_SESSION['msg'])){?>
                 <div class="alert alert-error">
   <button type="button" class="close" data-dismiss="alert">×</button>

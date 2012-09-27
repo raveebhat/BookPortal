@@ -13,3 +13,4 @@ foreach($results->body->Item() as $result) {
 	echo($result->Attribute->Value."&nbsp;");
 	echo('<input type="button" value="'.$result->Name.'">Delete User</input><br/>');
 }
+?>

@@ -21,10 +21,15 @@
 				'type'  => $type,
 			));
 			if($response->isOK()) {
-				echo "User ".$uname." Registered Successfully";
+				session_start();
+                            $_SESSION['ucmsg']="User created.";
+    
 			} else {
-				echo "Registration Failed";
+				session_start();
+                            $_SESSION['uemsg']="User creation failed.";
+   
 			}
+                         header('Location:'.$_SERVER['HTTP_REFERER']);
 		}
 	}
 ?>
