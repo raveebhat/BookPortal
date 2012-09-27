@@ -44,6 +44,16 @@
           session_start();
           //var_dump($_SESSION);
       ?>
+                     <?
+  require_once './sdk.class.php';
+  //session_start();
+$domain = 'books-aalr';
+$sdb = new AmazonSDB();
+$author = $_SESSION['email'];
+$result=$sdb->get_attributes($domain, $author,array('author','object'));
+
+var_dump($result->body);
+  ?>
       <div class="nav-collapse">
    
         <ul class="nav pull-right">
@@ -87,6 +97,8 @@
   <? echo$_SESSION['upmsg'];
   $_SESSION['upmsg']=null;
   ?>
+  </div>
+          <?}?>
    <?if(isset($_SESSION['auth'])&&isset($_SESSION['upemsg'])){?>
                 <div class="alert alert-error">
   <button type="button" class="close" data-dismiss="alert">×</button>
@@ -94,8 +106,8 @@
   <? echo$_SESSION['upemsg'];
   $_SESSION['upemsg']=null;
   ?>
-</div>
-          <?}?>
+ 
+
 </div>
           <?}?>
             <div class="row-fluid">

@@ -43,6 +43,7 @@
             <li>
                 <?
                 session_start();
+               
                 if(isset($_SESSION['auth'])){?>
                 <p class="welcome">Welcome<strong> <?echo $_SESSION['uname'];?></strong></p>
                 <?}
@@ -53,7 +54,7 @@
 
                 <?}?>
             </li>
-          <li class="divider-vertical"></li>
+<!--          <li class="divider-vertical"></li>-->
           <li class="drop down">
               <? if(isset($_SESSION['auth'])){?>
               <a href="signout.php">Sign out</a>
@@ -77,7 +78,15 @@
         </div>
         <div id="showcase">
         <div class="container">
-          
+             <?if(isset($_SESSION['auth'])&&isset($_SESSION['ucmsg'])){?>
+                <div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  
+  <? echo$_SESSION['ucmsg'];?>
+</div>
+                <?
+                session_destroy();
+                }?>
             <div class="page-header">
             <h1>Dashboard</h1>
           </div>
@@ -91,7 +100,7 @@
                     require_once './sdk.class.php';
                     $domain = 'authors';
 $sdb = new AmazonSDB();
-$query = "SELECT name FROM `{$domain}`";
+$query = "SELECT name,type FROM `{$domain}`";
 $results = $sdb->select($query);
                     ?>
                     <div class="tab-content">
@@ -113,8 +122,8 @@ $results = $sdb->select($query);
                                 <tbody>
                                     <?foreach($results->body->Item() as $result) {?>
                                     <tr>
-                                        <td><?echo($result->Attribute->Value."&nbsp;");?></td>
-                                        <td></td>
+                                        <td><?echo($result->Attribute[0]->Value."&nbsp;");?></td>
+                                        <td><?echo($result->Attribute[1]->Value=="1"?"Author":"Reader");?></td>
                                         <td><? echo $result->Name?></td>
                                     </tr>
                                     <?}?>

@@ -29,7 +29,7 @@
                             $_SESSION['uemsg']="User creation failed.";
    
 			}
-                         header('Location:'.$_SERVER['HTTP_REFERER']);
+                         header('Location:admin.php');
 		}
 	}
 ?>

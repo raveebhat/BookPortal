@@ -10,6 +10,6 @@ $query = "SELECT * FROM `{$domain}`";
 $results = $sdb->select($query);
 foreach($results->body->Item() as $result) {
 	echo($result->Attribute[1]->Value."<br/>");
-        echo($result->Attribute[0]->Value."<br/>");
+        echo($result->Attribute[2]->Value."<br/>");
 	
 }
